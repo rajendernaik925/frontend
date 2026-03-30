@@ -42,7 +42,6 @@ const statusStyle: Record<string, { bg: string; color: string; dot: string }> = 
   Cancelled: { bg: "rgba(239,68,68,0.12)",  color: "#ef4444", dot: "#ef4444" },
 };
 
-// Avatar color pairs
 const avatarColors: Record<string, [string, string]> = {
   RN: ["#dbeafe", "#1d4ed8"], SA: ["#fef3c7", "#d97706"],
   AS: ["#fee2e2", "#dc2626"], PS: ["#dcfce7", "#16a34a"], KM: ["#ede9fe", "#7c3aed"],
@@ -50,19 +49,12 @@ const avatarColors: Record<string, [string, string]> = {
 
 // ─── Component ───────────────────────────────────────────────────────────────
 export default function Dashboard() {
-  const [now, setNow]         = useState(new Date());
-  const [hovBar, setHovBar]   = useState<number | null>(null);
-  const [ticker, setTicker]   = useState(0);   // pulses the live dot
+  const [now, setNow]       = useState(new Date());
+  const [hovBar, setHovBar] = useState<number | null>(null);
 
   // Live clock
   useEffect(() => {
     const id = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  // Pulse ticker
-  useEffect(() => {
-    const id = setInterval(() => setTicker(t => t + 1), 2000);
     return () => clearInterval(id);
   }, []);
 
@@ -71,7 +63,6 @@ export default function Dashboard() {
 
   const maxVal = Math.max(...chartData.map(d => d.val));
 
-  // Subtle sparkline SVG path helper
   const sparkPath = (data: number[], w: number, h: number) => {
     const max = Math.max(...data); const min = Math.min(...data);
     const pts = data.map((v, i) => [
@@ -95,10 +86,6 @@ export default function Dashboard() {
         @keyframes pulse {
           0%, 100% { opacity: 1; transform: scale(1); }
           50%       { opacity: 0.4; transform: scale(0.85); }
-        }
-        @keyframes shimmer {
-          0%   { background-position: -400px 0; }
-          100% { background-position: 400px 0; }
         }
         @keyframes barGrow {
           from { height: 0 !important; }
