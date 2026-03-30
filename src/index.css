@@ -1,0 +1,118 @@
+/* ── Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #e8edf5;
+  font-family: 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #1a1a2e;
+}
+
+/* ── Scrollbar (global) ── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d9f0;
+  border-radius: 99px;
+}
+
+/* ── Links ── */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Buttons ── */
+button {
+  font-family: 'Segoe UI', sans-serif;
+  cursor: pointer;
+}
+
+/* ── Inputs ── */
+input, textarea, select {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #fafafa inset;
+  -webkit-text-fill-color: #333;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Layout utility ── */
+.dash-card {
+  animation: fadeUp 0.35s ease both;
+}
+
+/* ── Sidebar nav ── */
+.nav-link:hover {
+  background: rgba(26, 111, 212, 0.08) !important;
+  color: #1a6fd4 !important;
+}
+
+.nav-link.active {
+  background: #e8f0fb;
+  color: #1a6fd4;
+  font-weight: 700;
+}
+
+/* ── Table rows ── */
+.app-row:hover {
+  background: #f7faff !important;
+}
+
+.order-row:hover td {
+  background: #f7faff;
+}
+
+/* ── Cards ── */
+.rec-card:hover {
+  box-shadow: 0 4px 20px rgba(26, 111, 212, 0.12) !important;
+  transform: translateY(-1px);
+}
+
+.stat-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09) !important;
+}
+
+/* ── Buttons ── */
+.logout-btn:hover {
+  background: #fee2e2 !important;
+  color: #dc2626 !important;
+}
